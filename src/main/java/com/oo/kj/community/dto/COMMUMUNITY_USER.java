@@ -1,7 +1,6 @@
 package com.oo.kj.community.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,11 +12,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.Date;
 
-@Getter
 @Entity
-@NoArgsConstructor
+@Getter
 @Table(name = "COMMUMUNITY_USER")
-public class User {
+public class COMMUMUNITY_USER {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

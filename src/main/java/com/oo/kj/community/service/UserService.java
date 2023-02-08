@@ -1,7 +1,7 @@
 package com.oo.kj.community.service;
 
 import com.oo.kj.community.common.mail.Mail;
-import com.oo.kj.community.dto.User;
+import com.oo.kj.community.dto.COMMUMUNITY_USER;
 import com.oo.kj.community.repository.UserRepository;
 import com.oo.kj.community.request.UserCreateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class UserService {
         String code = RandomStringUtils.randomAlphabetic(10);
 
         //USER BUILD
-        User user = new User();
+        COMMUMUNITY_USER user = new COMMUMUNITY_USER();
         user.builder().id(userCreateRequest.getId())
                 .pw(userCreateRequest.getPw())
                 .name(userCreateRequest.getName())
@@ -36,6 +36,12 @@ public class UserService {
         Mail mail = new Mail();
         mail.sendMail(user.getUserEmail(), user.getUserEmailCode());
 
+
+    }
+
+    public void userAdmission(String ky) {
+        //TABLE UPDATE
+        userRepository.updateUserStatus(ky);
 
     }
 }
