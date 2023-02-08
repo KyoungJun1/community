@@ -15,5 +15,6 @@ public interface UserRepository extends JpaRepository<COMMUMUNITY_USER, Long> {
     @Transactional
     @Query(value = "UPDATE COMMUMUNITY_USER SET user_status='Y' WHERE COMMUMUNITY_USER.user_eamil_code = :ky" ,nativeQuery = true)
     public int updateUserStatus(@Param("ky") String ky);
-    
+
+    COMMUMUNITY_USER findByUserIdAndUserPw(String id, String pw);
 }
